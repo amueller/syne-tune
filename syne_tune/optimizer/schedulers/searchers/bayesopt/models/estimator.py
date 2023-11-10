@@ -149,6 +149,8 @@ def transform_state_to_data(
     targets = np.vstack(evaluation_values).reshape((-1, 1))
     mean = 0.0
     std = 1.0
+    targets[np.isinf(targets)] = targets[np.isfinite(targets)].max()
+    targets = np.minimum(targets, 5)
     if normalize_targets:
         std = max(np.std(targets).item(), 1e-9)
         mean = np.mean(targets).item()

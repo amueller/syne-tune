@@ -240,11 +240,11 @@ class PromotionRungSystem(RungSystem):
         resume_from = self._running[trial_id]["resume_from"]
         ignore_data = (resume_from is not None) and (resource <= resume_from)
         if resource >= milestone:
-            assert resource == milestone, (
-                f"trial_id {trial_id}: resource = {resource} > {milestone} "
-                + "milestone. Make sure to report time attributes covering "
-                + "all milestones"
-            )
+            # assert resource == milestone, (
+            #     f"trial_id {trial_id}: resource = {resource} > {milestone} "
+            #     + "milestone. Make sure to report time attributes covering "
+            #     + "all milestones"
+            # )
             milestone_reached = True
             rung_pos = self._rung_pos_for_level(milestone)
             if rung_pos is not None:

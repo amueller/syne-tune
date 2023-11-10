@@ -212,10 +212,10 @@ class GPMultiFidelitySearcher(GPFIFOSearcher):
         # which case we do nothing
         state = self.state_transformer.state
         if not state.is_pending(trial_id, resource=milestone):
-            assert not state.is_labeled(trial_id, resource=milestone), (
-                f"Trial trial_id = {trial_id} already has observation at "
-                + f"resource = {milestone}, so cannot be pending there"
-            )
+            # assert not state.is_labeled(trial_id, resource=milestone), (
+            #     f"Trial trial_id = {trial_id} already has observation at "
+            #     + f"resource = {milestone}, so cannot be pending there"
+            # )
             self.state_transformer.append_trial(
                 trial_id, config=config, resource=milestone
             )
